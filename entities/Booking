@@ -1,0 +1,88 @@
+{
+  "name": "Booking",
+  "type": "object",
+  "properties": {
+    "booking_reference": {
+      "type": "string",
+      "description": "Unique booking reference code"
+    },
+    "package_id": {
+      "type": "string",
+      "description": "Reference to the package"
+    },
+    "package_name": {
+      "type": "string",
+      "description": "Name of the booked package"
+    },
+    "tour_type": {
+      "type": "string",
+      "enum": [
+        "day_tour",
+        "night_tour",
+        "22_hours"
+      ],
+      "description": "Selected tour type"
+    },
+    "booking_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the reservation"
+    },
+    "guest_count": {
+      "type": "number",
+      "description": "Number of guests"
+    },
+    "customer_name": {
+      "type": "string",
+      "description": "Full name of the customer"
+    },
+    "customer_email": {
+      "type": "string",
+      "description": "Customer email"
+    },
+    "customer_phone": {
+      "type": "string",
+      "description": "Customer phone number"
+    },
+    "special_requests": {
+      "type": "string",
+      "description": "Any special requests"
+    },
+    "total_amount": {
+      "type": "number",
+      "description": "Total booking amount"
+    },
+    "receipt_url": {
+      "type": "string",
+      "description": "Uploaded receipt image URL"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "cancelled",
+        "completed"
+      ],
+      "default": "pending",
+      "description": "Booking status"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "unpaid",
+        "pending_verification",
+        "paid"
+      ],
+      "default": "unpaid",
+      "description": "Payment status"
+    }
+  },
+  "required": [
+    "package_id",
+    "booking_date",
+    "customer_name",
+    "customer_email",
+    "customer_phone"
+  ]
+}

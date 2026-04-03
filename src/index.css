@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Lora:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 40 30% 98%;
+  --foreground: 220 20% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 20% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 20% 12%;
+  --primary: 152 45% 32%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 36 60% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 40 20% 94%;
+  --muted-foreground: 220 10% 46%;
+  --accent: 36 60% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 40 15% 88%;
+  --input: 40 15% 88%;
+  --ring: 152 45% 32%;
+  --radius: 0.75rem;
+  --chart-1: 152 45% 32%;
+  --chart-2: 36 60% 50%;
+  --chart-3: 200 50% 45%;
+  --chart-4: 280 40% 50%;
+  --chart-5: 0 60% 50%;
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+}
+
+.dark {
+  --background: 220 20% 8%;
+  --foreground: 40 20% 95%;
+  --card: 220 18% 12%;
+  --card-foreground: 40 20% 95%;
+  --popover: 220 18% 12%;
+  --popover-foreground: 40 20% 95%;
+  --primary: 152 45% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 36 60% 55%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 15% 18%;
+  --muted-foreground: 220 10% 60%;
+  --accent: 36 60% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 15% 20%;
+  --input: 220 15% 20%;
+  --ring: 152 45% 40%;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-heading);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* ─── FullCalendar overrides ─── */
+.fc-wrapper .fc {
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
+}
+.fc-wrapper .fc-toolbar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.fc-wrapper .fc-button {
+  background-color: hsl(var(--muted)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--muted-foreground)) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.35rem 0.75rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+.fc-wrapper .fc-button:hover {
+  background-color: hsl(var(--muted) / 0.7) !important;
+  color: hsl(var(--foreground)) !important;
+}
+.fc-wrapper .fc-button-active,
+.fc-wrapper .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: hsl(var(--primary)) !important;
+  border-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+.fc-wrapper .fc-button-group {
+  gap: 2px;
+}
+.fc-wrapper .fc-col-header-cell {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: hsl(var(--muted-foreground));
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: transparent;
+  border-color: hsl(var(--border));
+}
+.fc-wrapper .fc-daygrid-day {
+  border-color: hsl(var(--border)) !important;
+}
+.fc-wrapper .fc-daygrid-day-number {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  padding: 4px 6px;
+}
+.fc-wrapper .fc-daygrid-day.fc-day-today {
+  background-color: hsl(var(--primary) / 0.06) !important;
+}
+.fc-wrapper .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 999px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fc-wrapper .fc-event {
+  border-radius: 4px !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 1px 4px !important;
+  cursor: pointer;
+}
+.fc-wrapper .fc-scrollgrid {
+  border-color: hsl(var(--border)) !important;
+}
+.fc-wrapper .fc-scrollgrid-section > * {
+  border-color: hsl(var(--border)) !important;
+}
+.fc-wrapper .fc-theme-standard td,
+.fc-wrapper .fc-theme-standard th {
+  border-color: hsl(var(--border)) !important;
+}
+.fc-wrapper .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 1rem;
+}
+.fc-wrapper .fc-daygrid-more-link {
+  font-size: 0.7rem;
+  color: hsl(var(--primary));
+  font-weight: 600;
+}
