@@ -2,6 +2,10 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
+const isProduction = process.env.NODE_ENV === 'production'
+const isVercel = process.env.VERCEL === '1'
+const basePath = process.env.VITE_BASE_PATH || (isProduction && !isVercel ? '/Kasa-Ilaya-Resort-Front-End/' : '/')
+
 export default defineConfig({
   server: {
     host: 'localhost',
@@ -21,7 +25,7 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/Kasa-Ilaya-Resort-Front-End/' : '/',
+  base: basePath,
   optimizeDeps: {
     esbuildOptions: {
       loader: {
